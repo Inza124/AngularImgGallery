@@ -7,6 +7,7 @@ import { ImageDetailComponent } from './image-detail/image-detail.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { UploadComponent } from './upload/upload.component';
+import { GalleryComponent } from './gallery/gallery.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { UploadComponent } from './upload/upload.component';
     ImageDetailComponent,
     NavbarComponent,
     LoginComponent,
-    UploadComponent
+    UploadComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,
