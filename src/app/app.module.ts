@@ -8,7 +8,17 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { UploadComponent } from './upload/upload.component';
 import { GalleryComponent } from './gallery/gallery.component';
-
+import { AuthenticationGuard } from './services/authenticationGuard.service';
+import { AuthenticationService } from './services/authentication.service';
+import { ImageService } from './services/image.service';
+import { UploadService } from './services/upload.service';
+import {appRoutes} from '../routes';
+import {RouterModule} from '@angular/router';
+import {FormsModule} from '@angular/forms';
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
+import {AngularFireAuthModule} from 'angularfire2/auth';
+import {firebase} from '../environments/firebase';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,9 +30,15 @@ import { GalleryComponent } from './gallery/gallery.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    RouterModule.forRoot(appRoutes),
+    AngularFireModule.initializeApp(firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
+
   ],
-  providers: [],
+  providers: [AuthenticationGuard, AuthenticationService , ImageService, UploadService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,14 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-
+import {AuthenticationService} from '../services/authentication.service';
+import {Router, Route} from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+email: string;
+password: string;
+errorMsg: string;
+  constructor(private authService: AuthenticationService, private router: Router) { }
 
-  constructor() { }
-
+  signIn() 
+  {
+    this.authService.login({email: this.email, password: this.password})
+    .then(resolve => this.router.navigate(['gallery'])
+    .catch(error =>this.errorMsg = error.message));
+  }
   ngOnInit() {
   }
 
