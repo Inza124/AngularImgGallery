@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {Observable } from 'rxjs';
 import {AngularFireAuth } from 'angularfire2/auth';
 import {AngularFireDatabase} from 'angularfire2/database';
-import {FirebaseApp} from 'angularfire2';
 import {GalleryImage} from '../models/galleryImage.model';
 import * as firebase from 'firebase';
 import 'firebase/storage';
